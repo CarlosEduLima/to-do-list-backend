@@ -1,16 +1,17 @@
 <?php 
     class Database {
-        private $host = "127.0.0.1";
-        private $database_name = "to-do-api";
-        private $user = "postgres";
-        private $password = "postgres";
+        private $host = "xxxx";
+        private $port = 0000;
+        private $database_name = "xxxx";
+        private $user = "xxxx";
+        private $password = "xxxx";
 
         public $conn;
 
         public function getConnection(){
             $this->conn = null;
             try{
-                $this->conn = new PDO("pgql:host=" . $this->host . ";dbname=" . $this->database_name, $this->user, $this->password);
+                $this->conn = new PDO("pgsql:host=" . $this->host . ";dbname=" . $this->database_name, $this->username, $this->password);
                 $this->conn->exec("set names utf8");
             }catch(PDOException $exception){
                 echo "Database could not be connected: " . $exception->getMessage();
